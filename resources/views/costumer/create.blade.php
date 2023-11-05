@@ -1,4 +1,9 @@
-@extends('layouts.app')
+@extends('layouts.app', [
+    'namePage' => 'Dashboard',
+    'class' => 'login-page sidebar-mini ',
+    'activePage' => 'home',
+    'backgroundImage' => asset('now') . "/img/bg14.jpg",
+])
 
 @section('template_title')
     {{ __('Create') }} Costumer

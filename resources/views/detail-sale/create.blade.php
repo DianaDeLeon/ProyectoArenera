@@ -6,26 +6,25 @@
 ])
 
 @section('template_title')
-    {{ __('Update') }} Costumer
+    {{ __('Create') }} Detail Sale
 @endsection
 
 @section('content')
     <section class="content container-fluid">
-        <div class="">
+        <div class="row">
             <div class="col-md-12">
 
                 @includeif('partials.errors')
 
                 <div class="card card-default">
                     <div class="card-header">
-                        <span class="card-title">{{ __('Update') }} Costumer</span>
+                        <span class="card-title">{{ __('Create') }} Detail Sale</span>
                     </div>
                     <div class="card-body">
-                        <form method="POST" action="{{ route('costumers.update', $costumer->id) }}"  role="form" enctype="multipart/form-data">
-                            {{ method_field('PATCH') }}
+                        <form method="POST" action="{{ route('detail_sales.store') }}"  role="form" enctype="multipart/form-data">
                             @csrf
 
-                            @include('costumer.form')
+                            @include('detail-sale.form')
 
                         </form>
                     </div>

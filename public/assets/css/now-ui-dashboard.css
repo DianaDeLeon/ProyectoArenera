@@ -4179,13 +4179,18 @@ Created using IcoMoon - icomoon.io
     }
 }
 
+.title-home{
+    color: white;
+    margin-left: 6cm;
+}
+
 .panel-header {
     height: 260px;
     padding-top: 80px;
     padding-bottom: 45px;
     background: rgb(114, 10, 2);
     /* fallback for old browsers */
-    background: linear-gradient(to right, rgb(170, 42, 42) 0%, rgb(168, 57, 53) 60%, rgb(180, 76, 76) 100%);
+    background: linear-gradient(to bottom, rgb(182, 42, 42) 0%, rgb(184, 75, 71) 60%, rgb(192, 108, 108) 100%);
     position: relative;
     overflow: hidden;
 }
@@ -4210,7 +4215,7 @@ Created using IcoMoon - icomoon.io
 }
 
 .panel-header-lg {
-    height: 380px;
+    height: 200px;
 }
 
 .footer {

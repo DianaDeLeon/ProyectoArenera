@@ -6,7 +6,7 @@
 ])
 
 @section('template_title')
-    {{ $costumer->name ?? "{{ __('Show') Costumer" }}
+    {{ $product->name ?? "{{ __('Show') Product" }}
 @endsection
 
 @section('content')
@@ -16,38 +16,34 @@
                 <div class="card">
                     <div class="card-header">
                         <div class="float-left">
-                            <span class="card-title">{{ __('Show') }} Costumer</span>
+                            <span class="card-title">{{ __('Show') }} Product</span>
                         </div>
                         <div class="float-right">
-                            <a class="btn btn-primary" href="{{ route('costumers.index') }}"> {{ __('Back') }}</a>
+                            <a class="btn btn-primary" href="{{ route('products.index') }}"> {{ __('Back') }}</a>
                         </div>
                     </div>
 
                     <div class="card-body">
                         
                         <div class="form-group">
-                            <strong>First Name:</strong>
-                            {{ $costumer->first_name }}
+                            <strong>Description:</strong>
+                            {{ $product->description }}
                         </div>
                         <div class="form-group">
-                            <strong>Last Name:</strong>
-                            {{ $costumer->last_name }}
+                            <strong>Unit Of Measurement:</strong>
+                            {{ $product->unit_of_measurement }}
                         </div>
                         <div class="form-group">
-                            <strong>Phone Number:</strong>
-                            {{ $costumer->phone_number }}
+                            <strong>Price:</strong>
+                            {{ $product->price }}
                         </div>
                         <div class="form-group">
-                            <strong>Nit:</strong>
-                            {{ $costumer->nit }}
-                        </div>
-                        <div class="form-group">
-                            <strong>Adress:</strong>
-                            {{ $costumer->adress }}
+                            <strong>Image:</strong>
+                            {{ $product->image }}
                         </div>
                         <div class="form-group">
                             <strong>Status:</strong>
-                            {{ $costumer->status }}
+                            {{ $product->status }}
                         </div>
 
                     </div>

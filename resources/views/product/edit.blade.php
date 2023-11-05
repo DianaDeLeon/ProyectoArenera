@@ -6,7 +6,7 @@
 ])
 
 @section('template_title')
-    {{ __('Update') }} Costumer
+    {{ __('Update') }} Product
 @endsection
 
 @section('content')
@@ -18,14 +18,14 @@
 
                 <div class="card card-default">
                     <div class="card-header">
-                        <span class="card-title">{{ __('Update') }} Costumer</span>
+                        <span class="card-title">{{ __('Update') }} Product</span>
                     </div>
                     <div class="card-body">
-                        <form method="POST" action="{{ route('costumers.update', $costumer->id) }}"  role="form" enctype="multipart/form-data">
+                        <form method="POST" action="{{ route('products.update', $product->id) }}"  role="form" enctype="multipart/form-data">
                             {{ method_field('PATCH') }}
                             @csrf
 
-                            @include('costumer.form')
+                            @include('product.form')
 
                         </form>
                     </div>

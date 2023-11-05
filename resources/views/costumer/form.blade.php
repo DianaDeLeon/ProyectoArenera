@@ -26,11 +26,7 @@
             {{ Form::text('adress', $costumer->adress, ['class' => 'form-control' . ($errors->has('adress') ? ' is-invalid' : ''), 'placeholder' => 'Adress']) }}
             {!! $errors->first('adress', '<div class="invalid-feedback">:message</div>') !!}
         </div>
-        <div class="form-group">
-            {{ Form::label('status') }}
-            {{ Form::text('status', $costumer->status, ['class' => 'form-control' . ($errors->has('status') ? ' is-invalid' : ''), 'placeholder' => 'Status']) }}
-            {!! $errors->first('status', '<div class="invalid-feedback">:message</div>') !!}
-        </div>
+
 
     </div>
     <div class="box-footer mt20">

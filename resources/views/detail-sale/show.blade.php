@@ -6,7 +6,7 @@
 ])
 
 @section('template_title')
-    {{ $costumer->name ?? "{{ __('Show') Costumer" }}
+    {{ $detailSale->name ?? "{{ __('Show') Detail Sale" }}
 @endsection
 
 @section('content')
@@ -16,38 +16,34 @@
                 <div class="card">
                     <div class="card-header">
                         <div class="float-left">
-                            <span class="card-title">{{ __('Show') }} Costumer</span>
+                            <span class="card-title">{{ __('Show') }} Detail Sale</span>
                         </div>
                         <div class="float-right">
-                            <a class="btn btn-primary" href="{{ route('costumers.index') }}"> {{ __('Back') }}</a>
+                            <a class="btn btn-primary" href="{{ route('detail_sales.index') }}"> {{ __('Back') }}</a>
                         </div>
                     </div>
 
                     <div class="card-body">
                         
                         <div class="form-group">
-                            <strong>First Name:</strong>
-                            {{ $costumer->first_name }}
+                            <strong>Id Sale:</strong>
+                            {{ $detailSale->id_sale }}
                         </div>
                         <div class="form-group">
-                            <strong>Last Name:</strong>
-                            {{ $costumer->last_name }}
+                            <strong>Id Product:</strong>
+                            {{ $detailSale->id_product }}
                         </div>
                         <div class="form-group">
-                            <strong>Phone Number:</strong>
-                            {{ $costumer->phone_number }}
+                            <strong>Price:</strong>
+                            {{ $detailSale->price }}
                         </div>
                         <div class="form-group">
-                            <strong>Nit:</strong>
-                            {{ $costumer->nit }}
+                            <strong>Quantity:</strong>
+                            {{ $detailSale->quantity }}
                         </div>
                         <div class="form-group">
-                            <strong>Adress:</strong>
-                            {{ $costumer->adress }}
-                        </div>
-                        <div class="form-group">
-                            <strong>Status:</strong>
-                            {{ $costumer->status }}
+                            <strong>Subtotal:</strong>
+                            {{ $detailSale->subtotal }}
                         </div>
 
                     </div>

@@ -6,7 +6,7 @@
 ])
 
 @section('template_title')
-    {{ $costumer->name ?? "{{ __('Show') Costumer" }}
+    {{ $sale->name ?? "{{ __('Show') Sale" }}
 @endsection
 
 @section('content')
@@ -16,40 +16,31 @@
                 <div class="card">
                     <div class="card-header">
                         <div class="float-left">
-                            <span class="card-title">{{ __('Show') }} Costumer</span>
+                            <span class="card-title">{{ __('Show') }} Sale</span>
                         </div>
                         <div class="float-right">
-                            <a class="btn btn-primary" href="{{ route('costumers.index') }}"> {{ __('Back') }}</a>
+                            <a class="btn btn-primary" href="{{ route('sales.index') }}"> {{ __('Back') }}</a>
                         </div>
                     </div>
 
                     <div class="card-body">
                         
                         <div class="form-group">
-                            <strong>First Name:</strong>
-                            {{ $costumer->first_name }}
+                            <strong>Date:</strong>
+                            {{ $sale->date }}
                         </div>
                         <div class="form-group">
-                            <strong>Last Name:</strong>
-                            {{ $costumer->last_name }}
+                            <strong>Id Costumer:</strong>
+                            {{ $sale->id_costumer }}
                         </div>
                         <div class="form-group">
-                            <strong>Phone Number:</strong>
-                            {{ $costumer->phone_number }}
+                            <strong>Id User:</strong>
+                            {{ $sale->id_user }}
                         </div>
                         <div class="form-group">
-                            <strong>Nit:</strong>
-                            {{ $costumer->nit }}
+                            <strong>Total:</strong>
+                            {{ $sale->total }}
                         </div>
-                        <div class="form-group">
-                            <strong>Adress:</strong>
-                            {{ $costumer->adress }}
-                        </div>
-                        <div class="form-group">
-                            <strong>Status:</strong>
-                            {{ $costumer->status }}
-                        </div>
-
                     </div>
                 </div>
             </div>
