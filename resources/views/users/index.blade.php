@@ -9,7 +9,7 @@
   <!-- Extra details for Live View on GitHub Pages -->
   <!-- Canonical SEO -->
   <link rel="canonical" href="https://www.creative-tim.com/product/now-ui-dashboard-pro" />
-
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 
   <!--  Social tags      -->
   <meta name="keywords" content="creative tim, html dashboard, html css dashboard, web dashboard, bootstrap 4 dashboard, bootstrap 4, css3 dashboard, bootstrap 4 admin, now ui dashboard bootstrap 4 dashboard, frontend, responsive bootstrap 4 dashboard, now ui design, now ui dashboard bootstrap 4 dashboard">
@@ -151,85 +151,114 @@
       <!--
         Tip 1: You can change the color of the sidebar using: data-color="blue | green | orange | red | yellow"
     -->
-      <div class="logo">
-        <a href="http://www.creative-tim.com" class="simple-text logo-mini">
-          {{ __('CT') }}
+    <center><div class="logo">
+   <a href="" class="simple-tex">
+    <img src="{{ asset('assets/img/LogoA.png') }}" alt="">
+    </a>
+    <a href="" class="simple-text logo-normal">
+      {{ __('Arenera El Éxito') }}
+    </a>
+  </div></center>
+  <div class="sidebar-wrapper" id="sidebar-wrapper">
+    <ul class="nav">
+      <li >
+        <a href="{{ route('home') }}">
+          <i class="now-ui-icons design_app"></i>
+          <p>{{ __('Home') }}</p>
         </a>
-        <a href="http://www.creative-tim.com" class="simple-text logo-normal">
-          {{ __('Creative Tim') }}
+      </li>
+
+      <li>
+        <a data-toggle="collapse" href="#laravelExamples">
+            <i class="now-ui-icons users_single-02"></i>
+          <p>
+            {{ __("USUARIOS") }}
+            <b class="caret"></b>
+          </p>
         </a>
-      </div>
-      <div class="sidebar-wrapper" id="sidebar-wrapper">
-        <ul class="nav">
-          <li >
-            <a href="{{ route('home') }}">
-              <i class="now-ui-icons design_app"></i>
-              <p>{{ __('Dashboard') }}</p>
-            </a>
-          </li>
-          <li>
-              <a data-toggle="collapse" href="#laravelExamples">
-                  <i class="fab fa-laravel"></i>
-                <p>
-                  {{ __("Laravel Examples") }}
-                  <b class="caret"></b>
-                </p>
+        <div class="collapse" id="laravelExamples">
+          <ul class="nav">
+            <li>
+              <a href="{{ route('profile.edit') }}">
+                <i class="now-ui-icons business_badge"></i>
+                <p> {{ __("PERFIL DE USUARIOS") }} </p>
               </a>
-              <div class="collapse show" id="laravelExamples">
-                <ul class="nav">
-                  <li >
-                    <a href="{{ route('profile.edit') }}">
-                      <i class="now-ui-icons users_single-02"></i>
-                      <p> {{ __("User Profile") }} </p>
-                    </a>
-                  </li>
-                  <li class=" active">
-                    <a href="{{ route('user.index') }}">
-                      <i class="now-ui-icons design_bullet-list-67"></i>
-                      <p> {{ __("User Management") }} </p>
-                    </a>
-                  </li>
-                </ul>
-              </div>
-          <li >
-            <a href="{{ route('page.index','icons') }}">
-              <i class="now-ui-icons education_atom"></i>
-              <p>{{ __('Icons') }}</p>
-            </a>
-          </li>
-          <li >
-            <a href="{{ route('page.index','maps') }}">
-              <i class="now-ui-icons location_map-big"></i>
-              <p>{{ __('Maps') }}</p>
-            </a>
-          </li>
-          <li >
-            <a href="{{ route('page.index','notifications') }}">
-              <i class="now-ui-icons ui-1_bell-53"></i>
-              <p>{{ __('Notifications') }}</p>
-            </a>
-          </li>
-          <li >
-            <a href="{{ route('page.index','table') }}">
-              <i class="now-ui-icons design_bullet-list-67"></i>
-              <p>Table List</p>
-            </a>
-          </li>
-          <li>
-            <a href="{{ route('page.index','typography') }}">
-              <i class="now-ui-icons text_caps-small"></i>
-              <p>{{ __('Typography') }}</p>
-            </a>
-          </li>
-          <li class = "">
-            <a href="{{ route('page.index','upgrade') }}" class="bg-info">
-              <i class="now-ui-icons arrows-1_cloud-download-93"></i>
-              <p>{{ __('Upgrade to PRO') }}</p>
-            </a>
-          </li>
-        </ul>
-      </div>
-    </div><div class="main-panel">
+            </li>
+            <li>
+              <a href="{{ route('user.index') }}">
+                <i class="now-ui-icons loader_gear"></i>
+                <p> {{ __("GESTION DE USUARIOS") }} </p>
+              </a>
+            </li>
+          </ul>
+        </div>
+       
+
+        <li>
+        <a data-toggle="collapse" href="#laravelSales">
+            <i class="now-ui-icons shopping_shop"></i>
+          <p>
+            {{ __("VENTAS") }}
+            <b class="caret"></b>
+          </p>
+        </a>
+        <div class="collapse" id="laravelSales">
+          <ul class="nav">
+            <li>
+              <a href="{{ route('profile.edit') }}">
+                <i class="now-ui-icons design_bullet-list-67"></i>
+                <p> {{ __("LISTAR VENTAS") }} </p>
+              </a>
+            </li>
+            <li>
+              <a href="{{ route('user.index') }}">
+                <i class="now-ui-icons ui-1_simple-add"></i>
+                <p> {{ __("REGISTRAR VENTA") }} </p>
+              </a>
+            </li>
+          </ul>
+        </div>
+       
+
+      <li>
+        <a href="{{ route('page.index','icons') }}">
+          <i class="now-ui-icons files_paper"></i>
+          <p>{{ __('Clientes') }}</p>
+        </a>
+      </li>
+      <li>
+        <a href="{{ route('page.index','maps') }}">
+          <i class="now-ui-icons shopping_box"></i>
+          <p>{{ __('Productos') }}</p>
+        </a>
+      </li>
+      <li>
+        <a href="{{ route('page.index','notifications') }}">
+          <i class="now-ui-icons ui-1_bell-53"></i>
+          <p>{{ __('Notifications') }}</p>
+        </a>
+      </li>
+      <li>
+        <a href="{{ route('page.index','table') }}">
+          <i class="now-ui-icons design_bullet-list-67"></i>
+          <p>{{ __('Table List') }}</p>
+        </a>
+      </li>
+      <li>
+        <a href="{{ route('page.index','typography') }}">
+          <i class="now-ui-icons text_caps-small"></i>
+          <p>{{ __('Typography') }}</p>
+        </a>
+      </li>
+      <li>
+        <a href="{{ route('page.index','upgrade') }}" class="bg-info">
+          <i class="now-ui-icons arrows-1_cloud-download-93"></i>
+          <p>{{ __('Upgrade to PRO') }}</p>
+        </a>
+      </li>
+    </ul>
+  </div>
+</div><div class="main-panel">
  <!-- Navbar -->
 <nav class="navbar navbar-expand-lg navbar-transparent  bg-primary  navbar-absolute">
   <div class="container-fluid">
@@ -369,38 +398,9 @@
     <!-- end row -->
   </div>
     <footer class="footer">
-  <div class=" container-fluid ">
-    <nav>
-      <ul>
-        <li>
-          <a href="https://www.creative-tim.com" target="_blank">
-             Creative Tim
-          </a>
-        </li>
-        <li>
-          <a href="http://presentation.creative-tim.com" target="_blank">
-             About Us
-          </a>
-        </li>
-        <li>
-          <a href="http://blog.creative-tim.com" target="_blank">
-             Blog
-          </a>
-        </li>
-        <li>
-          <a href="https://www.updivision.com" target="_blank">
-             Updivision</a>
-        </li>
-      </ul>
-    </nav>
-    <div class="copyright" id="copyright">
-      ©
-      <script>
-        document.getElementById('copyright').appendChild(document.createTextNode(new Date().getFullYear()))
-      </script>2020,  Designed by
-      <a href="https://www.invisionapp.com" target="_blank"> Invision</a> . Coded by
-      <a href="https://www.creative-tim.com" target="_blank"> Creative Tim </a>&amp;
-      <a href="https://www.updivision.com" target="_blank"> Updivision</a>
+  <div class=" container-fluid ">   
+  <div class="copyright" id="copyright">
+      <a  target="_blank">{{__(" @ Code by")}}</a>{{__(" Diana de León")}} 
     </div>
   </div>
 </footer></div>                    </div>

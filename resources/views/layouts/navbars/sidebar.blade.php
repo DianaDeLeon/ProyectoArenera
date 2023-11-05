@@ -25,7 +25,7 @@
             <b class="caret"></b>
           </p>
         </a>
-        <div class="collapse show" id="laravelExamples">
+        <div class="collapse" id="laravelExamples">
           <ul class="nav">
             <li class="@if ($activePage == 'profile') active @endif">
               <a href="{{ route('profile.edit') }}">
@@ -51,7 +51,7 @@
             <b class="caret"></b>
           </p>
         </a>
-        <div class="collapse show" id="laravelSales">
+        <div class="collapse" id="laravelSales">
           <ul class="nav">
             <li class="@if ($activePage == 'profile') active @endif">
               <a href="{{ route('profile.edit') }}">
