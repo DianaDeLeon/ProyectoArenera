@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Sale;
+use App\Models\Costumer;
 use Illuminate\Http\Request;
 
 /**
@@ -18,8 +19,10 @@ class SaleController extends Controller
      */
     public function index()
     {
+        $totales=0;
+        $customers = Costumer::all();
         $sales = Sale::where('status', true)->paginate(8);
-        return view('sale.index', compact('sales'))
+        return view('sale.index', compact('sales','totales','customers'))
             ->with('i', (request()->input('page', 1) - 1) * $sales->perPage());
     }
 
@@ -115,23 +118,29 @@ class SaleController extends Controller
     {
         $startDate = $request->input('start_date');
         $endDate = $request->input('end_date');
-        $status = $request->input('status'); // Obtenemos el estado desde el formulario
-
+        $status = $request->input('status');
+        $customerId = $request->input('id_costumer'); // Asegúrate de que el nombre del campo sea correcto
+    
         $query = Sale::where('status', true);
-
+    
         if ($status !== null) {
             $query->where('cancel', $status);
         }
-
+    
         if (!empty($startDate) && !empty($endDate)) {
             $query->whereBetween('date', [$startDate, $endDate]);
         }
-
+    
+        if (!empty($customerId)) {
+            $query->where('id_costumer', $customerId);
+        }
+    
         $sales = $query->paginate(8);
-
-        return view('sale.index', compact('sales'))
+        $totales = $sales->sum('total');
+        $customers = Costumer::all();
+    
+        return view('sale.index', compact('sales', 'totales', 'customers'))
             ->with('i', (request()->input('page', 1) - 1) * $sales->perPage());
+
     }
-
-
 }

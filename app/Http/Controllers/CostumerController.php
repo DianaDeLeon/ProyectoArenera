@@ -16,11 +16,17 @@ class CostumerController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(Request $request)
     {
-        $costumers = Costumer::where('status', true)->paginate(10);
+        $search = $request->input('search');
+    
+        $costumers = Costumer::where('status', true)
+            ->when($search, function ($query) use ($search) {
+                return $query->where('first_name', 'like', '%' . $search . '%');
+            })
+            ->paginate(10);
 
-        return view('costumer.index', compact('costumers'))
+        return view('costumer.index', compact('costumers', 'search'))
             ->with('i', (request()->input('page', 1) - 1) * $costumers->perPage());
     }
 
@@ -47,7 +53,7 @@ class CostumerController extends Controller
 
         $costumer = Costumer::create($request->all());
 
-        return redirect()->route('costumers.index')
+        return redirect()->route('costumers/list')
             ->with('success', 'Cliente creado exitosamente !');
     }
 
@@ -90,7 +96,7 @@ class CostumerController extends Controller
 
         $costumer->update($request->all());
 
-        return redirect()->route('costumers.index')
+        return redirect()->route('customers/list')
             ->with('success', 'Cliente Actualizado !');
     }
 
@@ -104,7 +110,7 @@ class CostumerController extends Controller
         // Actualiza el atributo "status" a false para el cliente con el ID dado
         $updated = Costumer::where('id', $id)->update(['status' => false]);
 
-        return redirect()->route('costumers.index')
+        return redirect()->route('customers/list')
             ->with('success', 'Cliente Eliminado !');
     }
 }

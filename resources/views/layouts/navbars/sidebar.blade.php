@@ -17,6 +17,7 @@
         </a>
       </li>
 
+      @if (auth()->check() && auth()->user()->name === 'Administrador')
       <li>
         <a data-toggle="collapse" href="#laravelExamples">
             <i class="now-ui-icons users_single-02"></i>
@@ -27,21 +28,15 @@
         </a>
         <div class="collapse" id="laravelExamples">
           <ul class="nav">
-            <li class="@if ($activePage == 'profile') active @endif">
-              <a href="{{ route('profile.edit') }}">
-                <i class="now-ui-icons business_badge"></i>
-                <p> {{ __("PERFIL DE USUARIOS") }} </p>
-              </a>
-            </li>
             <li class="@if ($activePage == 'users') active @endif">
-              <a href="{{ route('user.index') }}">
+              <a href="{{ route('users/list') }}">
                 <i class="now-ui-icons loader_gear"></i>
                 <p> {{ __("GESTION DE USUARIOS") }} </p>
               </a>
             </li>
           </ul>
         </div>
-       
+        @endif
 
         <li>
         <a data-toggle="collapse" href="#laravelSales">
@@ -70,40 +65,16 @@
        
 
       <li class="@if ($activePage == 'icons') active @endif">
-        <a href="{{ route('costumers.index','icons') }}">
+        <a href="{{ route('customers/list') }}">
           <i class="now-ui-icons files_paper"></i>
           <p>{{ __('Clientes') }}</p>
         </a>
       </li>
      
       <li class = "@if ($activePage == 'maps') active @endif">
-        <a href="{{ route('products.index','maps') }}">
+        <a href="{{ route('products/list','maps') }}">
           <i class="now-ui-icons shopping_box"></i>
           <p>{{ __('Productos') }}</p>
-        </a>
-      </li>
-      <li class = " @if ($activePage == 'notifications') active @endif">
-        <a href="{{ route('page.index','notifications') }}">
-          <i class="now-ui-icons ui-1_bell-53"></i>
-          <p>{{ __('Notifications') }}</p>
-        </a>
-      </li>
-      <li class = " @if ($activePage == 'table') active @endif">
-        <a href="{{ route('page.index','table') }}">
-          <i class="now-ui-icons design_bullet-list-67"></i>
-          <p>{{ __('Table List') }}</p>
-        </a>
-      </li>
-      <li class = "@if ($activePage == 'typography') active @endif">
-        <a href="{{ route('page.index','typography') }}">
-          <i class="now-ui-icons text_caps-small"></i>
-          <p>{{ __('Typography') }}</p>
-        </a>
-      </li>
-      <li class = "">
-        <a href="{{ route('page.index','upgrade') }}" class="bg-info">
-          <i class="now-ui-icons arrows-1_cloud-download-93"></i>
-          <p>{{ __('Upgrade to PRO') }}</p>
         </a>
       </li>
     </ul>

@@ -21,7 +21,7 @@
                     <div class="card-header">
 
                         <div class="float-right">
-                            <a class="btn btn-primary" href="{{ route('costumers.index') }}"> {{ __('Volver') }}</a>
+                            <a class="btn btn-primary" href="{{ route('customers/list') }}"> {{ __('Volver') }}</a>
                         </div>
                     </div>
 

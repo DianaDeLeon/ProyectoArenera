@@ -41,31 +41,46 @@
 
 
                     <form method="GET" action="{{ route('sales.filter') }}">
-                        <div class="form-row" style="margin-left: 0.4cm;">
-                            <div class="form-group col-md-3">
-                                <label for="start_date">Fecha de inicio:</label>
-                                <input type="date" class="form-control" name="start_date" id="start_date">
+                            <div class="form-row" style="margin-left: 0.4cm;">
+                                <div class="form-group col-md-2">
+                                    <label for="start_date">Fecha de inicio:</label>
+                                    <input type="date" class="form-control" name="start_date" id="start_date">
+                                </div>
+                                <div class="form-group col-md-2">
+                                    <label for="end_date">Fecha de fin:</label>
+                                    <input type="date" class="form-control" name="end_date" id="end_date">
+                                </div>
+                                <div class="form-group col-md-3">
+                                    <label for="status">Estado:</label>
+                                    <select class="form-control" name="status" id="status">
+                                        <option value="">Selecciona un estado</option>
+                                        <option value="1">Cancelado</option>
+                                        <option value="0">Pendiente</option>
+                                    </select>
+                                </div>
+
+                                <div class="form-group col-md-3">
+                                    <label for="id_costumer">Cliente:</label>
+                                    <select class="form-control" name="id_costumer" id="id_costumer">
+                                        <option value="">Selecciona un cliente</option>
+                                        @foreach($customers as $customer)
+                                        <option value="{{ $customer->id }}">{{ $customer->first_name }} {{ $customer->last_name }}</option>
+                                        @endforeach
+                                    </select>
+                                </div>
+
+
+                                <div class="form-group col-md-2" style="margin-top: 0.4cm;">
+                                    <button type="submit" class="btn btn-primary">Filtrar</button>
+                                </div>
                             </div>
-                            <div class="form-group col-md-3">
-                                <label for="end_date">Fecha de fin:</label>
-                                <input type="date" class="form-control" name="end_date" id="end_date">
-                            </div>
-                            <div class="form-group col-md-3">
-                                <label for="status">Estado:</label>
-                                <select class="form-control" name="status" id="status">
-                                    <option value="">Selecciona un estado</option>
-                                    <option value="1">Cancelado</option>
-                                    <option value="0">Pendiente</option>
-                                </select>
-                            </div>
-                            <div class="form-group col-md-3" style="margin-top: 0.4cm;">
-                                <button type="submit" class="btn btn-primary">Filtrar</button>
-                            </div>
-                        </div>
-                    </form>
+                        </form>
+
+                   
 
                     <div class="card-body">
 
+                    <div class="total-ventas">Total de Ventas: Q {{ $totales }}.00</div>
 
                     <div class="card-body">
                         <div class="table-responsive">
@@ -112,6 +127,7 @@
                             </table>
                         </div>
                     </div>
+                   
                 </div>
                 {!! $sales->links() !!}
             </div>

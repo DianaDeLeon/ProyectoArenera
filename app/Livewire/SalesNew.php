@@ -28,9 +28,8 @@ class SalesNew extends Component
    // Funcion que inizializa las variables
    public function mount()
    {
-       $this->clientes = Costumer::all();
-       $this->products = Product::all();
-
+        $this->clientes = Costumer::where('status', 1)->get();
+        $this->products = Product::where('status', 1)->get();
    }
    public function agregarProducto()
    {

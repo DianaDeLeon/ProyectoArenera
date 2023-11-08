@@ -107,7 +107,7 @@ class ProductController extends Controller
 
         }   
         
-        return redirect()->route('products.index')
+        return redirect()->route('products/list')
             ->with('success', 'Producto Creado Exitosamente.');
     }
 
@@ -151,7 +151,7 @@ class ProductController extends Controller
 
         $product->update($request->all());
 
-        return redirect()->route('products.index')
+        return redirect()->route('products/list')
             ->with('success', 'Product updated successfully');
     }
 
@@ -165,7 +165,7 @@ class ProductController extends Controller
         // Actualiza el atributo "status" a false para el cliente con el ID dado
         $updated = Product::where('id', $id)->update(['status' => false]);
 
-        return redirect()->route('products.index')
+        return redirect()->route('products/list')
             ->with('success', 'Product deleted successfully');
     }
 }
