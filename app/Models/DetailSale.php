@@ -57,6 +57,11 @@ class DetailSale extends Model
     {
         return $this->hasOne('App\Models\Sale', 'id', 'id_sale');
     }
+
+    public function producto()
+    {
+        return $this->belongsTo(Product::class, 'id_product');
+    }
     
 
 }

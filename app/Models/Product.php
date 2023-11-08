@@ -27,8 +27,6 @@ class Product extends Model
 		'description' => 'required',
 		'unit_of_measurement' => 'required',
 		'price' => 'required',
-		'image' => 'required',
-		'status' => 'required',
     ];
 
     protected $perPage = 20;

@@ -54,13 +54,13 @@
         <div class="collapse" id="laravelSales">
           <ul class="nav">
             <li class="@if ($activePage == 'profile') active @endif">
-              <a href="{{ route('profile.edit') }}">
+            <a href="{{ route('sales/list') }}">
                 <i class="now-ui-icons design_bullet-list-67"></i>
                 <p> {{ __("LISTAR VENTAS") }} </p>
               </a>
             </li>
             <li class="@if ($activePage == 'users') active @endif">
-              <a href="{{ route('user.index') }}">
+              <a href="{{ route('sales.create') }}">
                 <i class="now-ui-icons ui-1_simple-add"></i>
                 <p> {{ __("REGISTRAR VENTA") }} </p>
               </a>
@@ -70,13 +70,14 @@
        
 
       <li class="@if ($activePage == 'icons') active @endif">
-        <a href="{{ route('page.index','icons') }}">
+        <a href="{{ route('costumers.index','icons') }}">
           <i class="now-ui-icons files_paper"></i>
           <p>{{ __('Clientes') }}</p>
         </a>
       </li>
+     
       <li class = "@if ($activePage == 'maps') active @endif">
-        <a href="{{ route('page.index','maps') }}">
+        <a href="{{ route('products.index','maps') }}">
           <i class="now-ui-icons shopping_box"></i>
           <p>{{ __('Productos') }}</p>
         </a>

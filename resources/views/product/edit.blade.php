@@ -1,5 +1,5 @@
 @extends('layouts.app', [
-    'namePage' => 'Dashboard',
+    'namePage' => 'Material',
     'class' => 'login-page sidebar-mini ',
     'activePage' => 'home',
     'backgroundImage' => asset('now') . "/img/bg14.jpg",
@@ -10,6 +10,10 @@
 @endsection
 
 @section('content')
+<div class="panel-header panel-header-small">
+    <h2 class="title-sale">Editar Material</h2>
+  </div>
+<br><br><br>
     <section class="content container-fluid">
         <div class="">
             <div class="col-md-12">
@@ -18,14 +22,14 @@
 
                 <div class="card card-default">
                     <div class="card-header">
-                        <span class="card-title">{{ __('Update') }} Product</span>
+                        <span class="card-title"></span>
                     </div>
                     <div class="card-body">
                         <form method="POST" action="{{ route('products.update', $product->id) }}"  role="form" enctype="multipart/form-data">
                             {{ method_field('PATCH') }}
                             @csrf
 
-                            @include('product.form')
+                            @include('product.form',["task"=>"edit"])
 
                         </form>
                     </div>

@@ -27,6 +27,7 @@ return new class extends Migration
                 ->onDelete("cascade")
                 ->onUpdate("cascade");
             $table->decimal('total',8,2);
+            $table->boolean('cancel')->default(true);
             $table->boolean('status')->default(true);
             $table->timestamps();
         });

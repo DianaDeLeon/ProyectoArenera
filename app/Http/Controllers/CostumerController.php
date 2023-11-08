@@ -18,7 +18,7 @@ class CostumerController extends Controller
      */
     public function index()
     {
-        $costumers = Costumer::paginate();
+        $costumers = Costumer::where('status', true)->paginate(10);
 
         return view('costumer.index', compact('costumers'))
             ->with('i', (request()->input('page', 1) - 1) * $costumers->perPage());
@@ -48,7 +48,7 @@ class CostumerController extends Controller
         $costumer = Costumer::create($request->all());
 
         return redirect()->route('costumers.index')
-            ->with('success', 'Costumer created successfully.');
+            ->with('success', 'Cliente creado exitosamente !');
     }
 
     /**
@@ -91,7 +91,7 @@ class CostumerController extends Controller
         $costumer->update($request->all());
 
         return redirect()->route('costumers.index')
-            ->with('success', 'Costumer updated successfully');
+            ->with('success', 'Cliente Actualizado !');
     }
 
     /**
@@ -101,9 +101,10 @@ class CostumerController extends Controller
      */
     public function destroy($id)
     {
-        $costumer = Costumer::find($id)->delete();
+        // Actualiza el atributo "status" a false para el cliente con el ID dado
+        $updated = Costumer::where('id', $id)->update(['status' => false]);
 
         return redirect()->route('costumers.index')
-            ->with('success', 'Costumer deleted successfully');
+            ->with('success', 'Cliente Eliminado !');
     }
 }

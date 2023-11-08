@@ -30,7 +30,6 @@ class Sale extends Model
 		'id_costumer' => 'required',
 		'id_user' => 'required',
 		'total' => 'required',
-		'status' => 'required',
     ];
 
     protected $perPage = 20;
@@ -40,7 +39,7 @@ class Sale extends Model
      *
      * @var array
      */
-    protected $fillable = ['date','id_costumer','id_user','total','status'];
+    protected $fillable = ['date','id_costumer','id_user','total','cancel','status'];
 
 
     /**
@@ -67,5 +66,9 @@ class Sale extends Model
         return $this->hasOne('App\Models\User', 'id', 'id_user');
     }
     
+    public function detallesVenta()
+    {
+        return $this->hasMany(DetailSale::class, 'id_sale');
+    }
 
 }

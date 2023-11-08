@@ -580,10 +580,10 @@ fieldset[disabled] .navbar .navbar-nav>a.btn.active {
 .show>.btn-primary.dropdown-toggle,
 .show>.btn-primary.dropdown-toggle:focus,
 .show>.btn-primary.dropdown-toggle:hover {
-    background-color: #fa7a50;
+    background-color: #6e6a6a;
     color: #FFFFFF;
     box-shadow: none;
-    border-color: #fa7a50;
+    border-color: #6e6a6a;
 }
 
 .btn-primary:not([data-action]):not([class*="btn-outline-"]):hover {
@@ -2532,6 +2532,18 @@ a[data-toggle="collapse"][aria-expanded="true"] .caret,
     background-color: #FFFFFF !important;
 }
 
+.green-dot {
+    color: green;
+    font-size: 30px;
+    margin-left: 0.5cm;
+}
+
+.red-dot {
+    color: red;
+    font-size: 30px;
+    margin-left: 0.5cm;
+}
+
 .page-header {
     min-height: 100vh;
     max-height: 999px;
@@ -2567,7 +2579,7 @@ a[data-toggle="collapse"][aria-expanded="true"] .caret,
 
 .full-page>.content {
     padding-bottom: 150px;
-    padding-top: 150px;
+    padding-top: 100px;
     width: 100%;
 }
 
@@ -2987,7 +2999,7 @@ a[data-toggle="collapse"][aria-expanded="true"] .caret,
 .alert {
     border: 0;
     border-radius: 0.1875rem;
-    color: #FFFFFF;
+    color: #faf2f2;
     padding-top: .9rem;
     padding-bottom: .9rem;
     position: relative;
@@ -3606,6 +3618,14 @@ Created using IcoMoon - icomoon.io
     font-size: 0.7142em;
 }
 
+.table-title-row{
+    color: #333;
+    font-family:'Lucida Sans';
+    font-size:12px;
+    font-weight: bold;
+}
+
+
 .table .img-wrapper {
     width: 40px;
     height: 40px;
@@ -4184,6 +4204,27 @@ Created using IcoMoon - icomoon.io
     margin-left: 6cm;
 }
 
+.title-sale{
+    color: white;
+    text-align: center;
+}
+
+.panel-header2 {
+    height: 200px;
+    padding-top: 80px;
+    padding-bottom: 45px;
+    background: rgb(114, 10, 2);
+    /* fallback for old browsers */
+    background: linear-gradient(to bottom, rgb(182, 42, 42) 0%, rgb(184, 75, 71) 60%, rgb(192, 108, 108) 100%);
+    position: relative;
+    overflow: hidden;
+}
+
+.panel-header-small2{
+    height: 50px;
+}
+
+
 .panel-header {
     height: 260px;
     padding-top: 80px;
@@ -4216,6 +4257,10 @@ Created using IcoMoon - icomoon.io
 
 .panel-header-lg {
     height: 200px;
+}
+
+.panel-header-small {
+    height: 100px;
 }
 
 .footer {
@@ -4780,6 +4825,17 @@ Created using IcoMoon - icomoon.io
 .map {
     height: 500px;
 }
+
+.image-container {
+    text-align: center;
+    padding: 10px; 
+  }
+  
+  .image-container img {
+    max-width: 100%;
+    height: auto;
+    display: inline-block;
+  }
 
 @media screen and (max-width: 991px) {
     .profile-photo .profile-photo-small {
@@ -5727,9 +5783,8 @@ Created using IcoMoon - icomoon.io
 }
 
 .login-page .card-login .logo-container {
-    width: 65px;
+    width: 150px;
     margin: 0 auto;
-    margin-bottom: 55px;
 }
 
 .login-page .card-login .logo-container img {

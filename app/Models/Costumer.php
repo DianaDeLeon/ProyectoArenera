@@ -28,9 +28,7 @@ class Costumer extends Model
 		'first_name' => 'required',
 		'last_name' => 'required',
 		'phone_number' => 'required',
-		'nit' => 'required',
 		'adress' => 'required',
-		'status' => 'required',
     ];
 
     protected $perPage = 20;

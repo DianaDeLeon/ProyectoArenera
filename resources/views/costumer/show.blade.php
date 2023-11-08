@@ -1,8 +1,8 @@
 @extends('layouts.app', [
-    'namePage' => 'Dashboard',
+    'namePage' => 'Cliente',
     'class' => 'login-page sidebar-mini ',
     'activePage' => 'home',
-    'backgroundImage' => asset('now') . "/img/bg14.jpg",
+    'backgroundImage' => asset('now') . "/img/bg15.jpg",
 ])
 
 @section('template_title')
@@ -10,31 +10,33 @@
 @endsection
 
 @section('content')
+<div class="panel-header panel-header-small">
+    <h2 class="title-sale">Detalle del Cliente</h2>
+  </div>
+<br><br><br>
     <section class="content container-fluid">
         <div class="row">
             <div class="col-md-12">
                 <div class="card">
                     <div class="card-header">
-                        <div class="float-left">
-                            <span class="card-title">{{ __('Show') }} Costumer</span>
-                        </div>
+
                         <div class="float-right">
-                            <a class="btn btn-primary" href="{{ route('costumers.index') }}"> {{ __('Back') }}</a>
+                            <a class="btn btn-primary" href="{{ route('costumers.index') }}"> {{ __('Volver') }}</a>
                         </div>
                     </div>
 
                     <div class="card-body">
                         
                         <div class="form-group">
-                            <strong>First Name:</strong>
+                            <strong>Nombre:</strong>
                             {{ $costumer->first_name }}
                         </div>
                         <div class="form-group">
-                            <strong>Last Name:</strong>
+                            <strong>Apellido:</strong>
                             {{ $costumer->last_name }}
                         </div>
                         <div class="form-group">
-                            <strong>Phone Number:</strong>
+                            <strong>Teléfono:</strong>
                             {{ $costumer->phone_number }}
                         </div>
                         <div class="form-group">
@@ -42,14 +44,9 @@
                             {{ $costumer->nit }}
                         </div>
                         <div class="form-group">
-                            <strong>Adress:</strong>
+                            <strong>Dirección:</strong>
                             {{ $costumer->adress }}
                         </div>
-                        <div class="form-group">
-                            <strong>Status:</strong>
-                            {{ $costumer->status }}
-                        </div>
-
                     </div>
                 </div>
             </div>

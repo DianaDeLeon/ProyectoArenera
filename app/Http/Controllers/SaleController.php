@@ -18,8 +18,7 @@ class SaleController extends Controller
      */
     public function index()
     {
-        $sales = Sale::paginate();
-
+        $sales = Sale::where('status', true)->paginate(8);
         return view('sale.index', compact('sales'))
             ->with('i', (request()->input('page', 1) - 1) * $sales->perPage());
     }
@@ -47,8 +46,8 @@ class SaleController extends Controller
 
         $sale = Sale::create($request->all());
 
-        return redirect()->route('sales.index')
-            ->with('success', 'Sale created successfully.');
+        return redirect()->route('sale/list')
+            ->with('success', 'Registro Exitoso.');
     }
 
     /**
@@ -59,7 +58,12 @@ class SaleController extends Controller
      */
     public function show($id)
     {
-        $sale = Sale::find($id);
+        $sale = Sale::with('detallesVenta.producto')->find($id);
+        
+        if (!$sale) {
+            // Puedes manejar el caso en que la venta no se encuentre, por ejemplo, redireccionando a otra página o mostrando un mensaje de error.
+            return redirect()->route('sales/list')->with('error', 'La venta no existe.');
+        }
 
         return view('sale.show', compact('sale'));
     }
@@ -90,8 +94,8 @@ class SaleController extends Controller
 
         $sale->update($request->all());
 
-        return redirect()->route('sales.index')
-            ->with('success', 'Sale updated successfully');
+        return redirect()->route('sales/list')
+            ->with('success', 'Registro Actualizado');
     }
 
     /**
@@ -101,9 +105,33 @@ class SaleController extends Controller
      */
     public function destroy($id)
     {
-        $sale = Sale::find($id)->delete();
+        $sale = Sale::where('id', $id)->update(['status' => false]);
 
-        return redirect()->route('sales.index')
-            ->with('success', 'Sale deleted successfully');
+        return redirect()->route('sales/list')
+            ->with('success', 'Registro eliminado');
     }
+
+    public function filterByDate(Request $request)
+    {
+        $startDate = $request->input('start_date');
+        $endDate = $request->input('end_date');
+        $status = $request->input('status'); // Obtenemos el estado desde el formulario
+
+        $query = Sale::where('status', true);
+
+        if ($status !== null) {
+            $query->where('cancel', $status);
+        }
+
+        if (!empty($startDate) && !empty($endDate)) {
+            $query->whereBetween('date', [$startDate, $endDate]);
+        }
+
+        $sales = $query->paginate(8);
+
+        return view('sale.index', compact('sales'))
+            ->with('i', (request()->input('page', 1) - 1) * $sales->perPage());
+    }
+
+
 }

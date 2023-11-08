@@ -21,6 +21,11 @@
             {{ Form::text('total', $sale->total, ['class' => 'form-control' . ($errors->has('total') ? ' is-invalid' : ''), 'placeholder' => 'Total']) }}
             {!! $errors->first('total', '<div class="invalid-feedback">:message</div>') !!}
         </div>
+        <div class="form-group">
+            {{ Form::label('cancelado') }}
+            <input type="checkbox" name="cancel" value="1" {{ $sale->cancel == 1 ? 'checked' : '' }}>
+            {!! $errors->first('cancel', '<div class="invalid-feedback">:message</div>') !!}
+        </div>
     </div>
     <div class="box-footer mt20">
         <button type="submit" class="btn btn-primary">{{ __('Submit') }}</button>

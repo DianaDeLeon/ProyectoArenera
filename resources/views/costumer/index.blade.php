@@ -1,8 +1,8 @@
 @extends('layouts.app', [
-    'namePage' => 'Dashboard',
+    'namePage' => 'Cliente',
     'class' => 'login-page sidebar-mini ',
     'activePage' => 'home',
-    'backgroundImage' => asset('now') . "/img/bg14.jpg",
+    'backgroundImage' => asset('now') . "/img/bg15.jpg",
 ])
 
 @section('template_title')
@@ -10,7 +10,11 @@
 @endsection
 
 @section('content')
-    <br><br><br><br>
+<div class="panel-header panel-header-small">
+    <h2 class="title-sale">Listado de Clientes</h2>
+  </div>
+<br>
+    <br>
     <div class="container-fluid">
         <div class="row">
             <div class="col-sm-12">
@@ -19,12 +23,12 @@
                         <div style="display: flex; justify-content: space-between; align-items: center;">
 
                             <span id="card_title">
-                                {{ __('Costumer') }}
+                               
                             </span>
 
                              <div class="float-right">
                                 <a href="{{ route('costumers.create') }}" class="btn btn-primary btn-sm float-right"  data-placement="left">
-                                  {{ __('Create New') }}
+                                  {{ __('Agregar Cliente') }}
                                 </a>
                               </div>
                         </div>
@@ -39,14 +43,14 @@
                         <div class="table-responsive">
                             <table class="table table-striped table-hover">
                                 <thead class="thead">
-                                    <tr>
-                                        <th>No</th>
+                                    <tr class="table-title-row">
+                                        <th>#</th>
                                         
-										<th>First Name</th>
-										<th>Last Name</th>
-										<th>Phone Number</th>
+										<th>Nombre</th>
+										<th>Apellido</th>
+										<th>Teléfono</th>
 										<th>Nit</th>
-										<th>Adress</th>
+										<th>Dirección</th>
 
                                         <th></th>
                                     </tr>
@@ -64,11 +68,11 @@
 
                                             <td>
                                                 <form action="{{ route('costumers.destroy',$costumer->id) }}" method="POST">
-                                                    <a class="btn btn-sm btn-primary " href="{{ route('costumers.show',$costumer->id) }}"><i class="fa fa-fw fa-eye"></i> {{ __('Show') }}</a>
-                                                    <a class="btn btn-sm btn-success" href="{{ route('costumers.edit',$costumer->id) }}"><i class="fa fa-fw fa-edit"></i> {{ __('Edit') }}</a>
+                                                    <a class="btn btn-sm btn-primary " href="{{ route('costumers.show',$costumer->id) }}"><i class="fa fa-fw fa-eye"></i></a>
+                                                    <a class="btn btn-sm btn-success" href="{{ route('costumers.edit',$costumer->id) }}"><i class="fa fa-fw fa-edit"></i></a>
                                                     @csrf
                                                     @method('DELETE')
-                                                    <button type="submit" class="btn btn-danger btn-sm"><i class="fa fa-fw fa-trash"></i> {{ __('Delete') }}</button>
+                                                    <button type="submit" class="btn btn-danger btn-sm"><i class="fa fa-fw fa-trash"></i></button>
                                                 </form>
                                             </td>
                                         </tr>

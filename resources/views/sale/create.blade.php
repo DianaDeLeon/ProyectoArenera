@@ -2,7 +2,7 @@
     'namePage' => 'Dashboard',
     'class' => 'login-page sidebar-mini ',
     'activePage' => 'home',
-    'backgroundImage' => asset('now') . "/img/bg14.jpg",
+    'backgroundImage' => asset('now') . "/img/bg15.jpg",
 ])
 
 @section('template_title')
@@ -21,15 +21,12 @@
                         <span class="card-title">{{ __('Create') }} Sale</span>
                     </div>
                     <div class="card-body">
-                        <form method="POST" action="{{ route('sales.store') }}"  role="form" enctype="multipart/form-data">
-                            @csrf
-
-                            @include('sale.form')
-
-                        </form>
+                        @csrf
+                        <livewire:sales-new>
                     </div>
                 </div>
             </div>
         </div>
     </section>
+    @livewireScripts
 @endsection

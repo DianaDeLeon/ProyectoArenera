@@ -1,8 +1,8 @@
 @extends('layouts.app', [
-    'namePage' => 'Login page',
+    'namePage' => 'Login',
     'class' => 'login-page sidebar-mini ',
     'activePage' => 'login',
-    'backgroundImage' => asset('assets') . "/img/bg14.jpg",
+    'backgroundImage' => asset('assets') . "/img/bg15.jpg",
 ])
 
 @section('content')
@@ -31,7 +31,7 @@
             <div class="card card-login card-plain">
                 <div class="card-header ">
                 <div class="logo-container">
-                    <img src="{{ asset('assets/img/now-logo.png') }}" alt="">
+                    <img src="{{ asset('assets/img/LogoLogin.png') }}" alt="">
                 </div>
                 </div>
                 <div class="card-body ">
@@ -63,17 +63,7 @@
                 @endif
                 </div>
                 <div class="card-footer ">
-                <button  type = "submit" class="btn btn-primary btn-round btn-lg btn-block mb-3">{{ __('Get Started') }}</button>
-                <div class="pull-left">
-                    <h6>
-                    <a href="{{ route('register') }}" class="link footer-link">{{ __('Create Account') }}</a>
-                    </h6>
-                </div>
-                <div class="pull-right">
-                    <h6>
-                    <a href="{{ route('password.request') }}" class="link footer-link">{{ __('Forgot Password?') }}</a>
-                    </h6>                
-                </div>
+                <button  type = "submit" class="btn btn-primary btn-round btn-lg btn-block mb-3">{{ __('Iniciar') }}</button>
                 </div>
             </div>
             </form>
